@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Player</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="head">
+        <h1>VideoPlay PWA</h1>
+        <label for="videoDropdown">Select a Video:</label>
+        <select id="videoDropdown">
+          <option value="./videos/v1.mp4">Video 1</option>
+          <option value="./videos/v2.mp4">Video 2</option>
+          <option value="./videos/v3.mp4">Video 3</option>
+          <option value="./videos/v4.mp4">Video 4</option>
+        </select>
+      </div>
+
+      <div id="video">
+        <video id="videoPlayer" controls autoplay>
+          <source src="./videos/v1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
