@@ -7,10 +7,6 @@ const assetsToCache = [
   "/manifest.json",
   "/images/icons",
   "/images/favicon.ico",
-  "/videos/v1.mp4",
-  "/videos/v2.mp4",
-  "/videos/v3.mp4",
-  "/videos/v4.mp4",
 ]
 
 function saveVideosToLocalStorage() {
