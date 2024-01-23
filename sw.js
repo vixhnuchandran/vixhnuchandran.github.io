@@ -7,15 +7,13 @@ const assetsToCache = [
   "/manifest.json",
   "/images/icons",
   "/images/favicon.ico",
+  "/videos/v1.mp4",
+  "/videos/v2.mp4",
+  "/videos/v3.mp4",
+  "/videos/v4.mp4",
 ]
 
-function saveVideosToLocalStorage() {
-  localStorage.setItem(
-    "cachedVideos",
-    JSON.stringify(assetsToCache.filter(url => url.endsWith(".mp4")))
-  )
-}
-
+// install event
 self.addEventListener("install", event => {
   console.log(`service worker has been installed`)
 
@@ -23,7 +21,6 @@ self.addEventListener("install", event => {
     caches.open(cacheName).then(cache => {
       console.log(`caching shell assets`)
       cache.addAll(assetsToCache)
-      saveVideosToLocalStorage()
     })
   )
 })
@@ -40,9 +37,8 @@ self.addEventListener("activate", event => {
   )
 })
 
+// fetch event
 self.addEventListener("fetch", event => {
-  // console.log(`fetch event `, event)
-
   event.respondWith(
     caches.match(event.request).then(response => {
       return response || fetch(event.request)
