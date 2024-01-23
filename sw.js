@@ -5,7 +5,7 @@ const assetsToCache = [
   "/js/materialize.min.js",
   "/css/materialize.min.css",
   "/manifest.json",
-  "/images/icons",
+  "/images/icons/icon.png",
   "/images/favicon.ico",
   "/videos/v1.mp4",
   "/videos/v2.mp4",
