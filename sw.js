@@ -2,11 +2,8 @@ const cacheName = "vid-player-v0"
 const assetsToCache = [
   "/",
   "/index.html",
-  "/js/main.js",
-  "/js/app.js",
   "/js/materialize.min.js",
   "/css/materialize.min.css",
-  "/css/style.css",
   "/manifest.json",
   "/images/icons",
   "/images/favicon.ico",
@@ -16,6 +13,13 @@ const assetsToCache = [
   "/videos/v4.mp4",
 ]
 
+function saveVideosToLocalStorage() {
+  localStorage.setItem(
+    "cachedVideos",
+    JSON.stringify(assetsToCache.filter(url => url.endsWith(".mp4")))
+  )
+}
+
 self.addEventListener("install", event => {
   console.log(`service worker has been installed`)
 
@@ -23,6 +27,7 @@ self.addEventListener("install", event => {
     caches.open(cacheName).then(cache => {
       console.log(`caching shell assets`)
       cache.addAll(assetsToCache)
+      saveVideosToLocalStorage()
     })
   )
 })
